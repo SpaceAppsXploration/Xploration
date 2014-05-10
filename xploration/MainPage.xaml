@@ -43,13 +43,10 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock FontFamily="Segoe WP Light" FontSize="28" TextWrapping="Wrap" Margin="0,10,0,142" Grid.Row ="0" TextAlignment="Left" Grid.RowSpan="2">
+                    <TextBlock FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap" Margin="0,10,0,72" Grid.Row ="0" TextAlignment="Left" Grid.RowSpan="2">
                         "We've always defined ourselves by the ability to overcome the impossible. 
                         And we count these moments. These moments when we dare to aim higher, to break barriers, to reach for the stars, to make the unknown known. 
                         And that our greatest accomplishments cannot be behind us, because our destiny lies above us."       
-                        <LineBreak/>
-                        <LineBreak/>
-                        -Interstellar-
                     </TextBlock>
 
                     <Button Grid.Row="1" BorderThickness="0,2,0,2" Margin="-24,220,-24,0" Click="eXplore">

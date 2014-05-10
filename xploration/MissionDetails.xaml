@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -13,20 +14,75 @@
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
-    <!--LayoutRoot è la griglia radice in cui viene inserito tutto il contenuto della pagina-->
-    <Grid x:Name="LayoutRoot" Background="Transparent">
-        <!--Controllo Pivot-->
-        <phone:Pivot Title="APPLICAZIONE">
-            <!--Elemento Pivot uno-->
-            <phone:PivotItem Header="item1">
-                <Grid/>
+    <phone:PhoneApplicationPage.Resources>
+        <DataTemplate x:Key="EventOrFactOrArticleTemplate">
+            <StackPanel>
+                <TextBlock Text="{Binding header}" FontFamily="Segoe WP Light" FontSize="32" FontWeight="Medium"></TextBlock>
+                <TextBlock Text="{Binding body}" FontFamily="Segoe WP Light" FontWeight="Light" FontSize="28" TextWrapping="Wrap"></TextBlock>
+                <TextBlock Text=" "></TextBlock>
+            </StackPanel>
+        </DataTemplate>
+
+    </phone:PhoneApplicationPage.Resources>
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Background/bg.png"></ImageBrush>
+        </Grid.Background>
+
+        <phone:Pivot Margin="0,-26,0,-10">
+            <phone:PivotItem Header="about">
+                <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Visible">
+                    <StackPanel MaxHeight="1000">
+                        <TextBlock x:Name="mission_name" FontFamily="Segoe WP Light" FontSize="35" TextWrapping="Wrap" FontWeight="Medium" Text="{Binding}" Height="98"/>
+                        <Image x:Name="mission_picture" Source="{Binding}"/>
+                        
+                        <TextBlock FontFamily="Segoe WP Light" FontSize="38">launch date:</TextBlock>
+                        <TextBlock x:Name="mission_launch_date" FontFamily="Segoe WP Light" FontSize="32" FontWeight="Medium" TextWrapping="Wrap"><LineBreak/></TextBlock>
+
+                        <TextBlock FontFamily="Segoe WP Light" FontSize="38">mission status:</TextBlock>
+                        <TextBlock x:Name="mission_status" FontFamily="Segoe WP Light" FontSize="32" FontWeight="Medium"><LineBreak/></TextBlock>
+
+                        <TextBlock FontFamily="Segoe WP Light" FontSize="38">mission targets:</TextBlock>
+                        <phone:LongListSelector x:Name="mission_targets" ItemsSource="{Binding}">
+                            <phone:LongListSelector.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontFamily="Segoe WP Light" FontSize="32" FontWeight="Medium" Text="{Binding name}" TextWrapping="Wrap"/>
+                                </DataTemplate>
+                            </phone:LongListSelector.ItemTemplate>
+                        </phone:LongListSelector>
+
+                    </StackPanel>
+                </ScrollViewer>
             </phone:PivotItem>
 
-            <!--Elemento Pivot due-->
-            <phone:PivotItem Header="item2">
-                <Grid/>
+            <phone:PivotItem Header="mission">
+                <phone:LongListSelector x:Name="EventOrFactOrArticleList" ItemTemplate="{StaticResource EventOrFactOrArticleTemplate}" ItemsSource="{Binding}"/>
             </phone:PivotItem>
+
+
+            <phone:PivotItem Header="share" Margin="12,28,12,156">
+                <Grid>
+                    <Grid x:Name="socialGrid" Margin="0,528,0,-146">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="/Assets/Logos/facebook_logo.png" Grid.Column="0" toolkit:TiltEffect.IsTiltEnabled="True"></Image>
+                        <Image Source="/Assets/Logos/twitter_logo.png" Grid.Column="1" toolkit:TiltEffect.IsTiltEnabled="True"></Image>
+                        <Image Source="/Assets/Logos/rss.png" Grid.Column="2" toolkit:TiltEffect.IsTiltEnabled="True"></Image>
+                    </Grid>
+                    <Image Margin="104,-26,99,296" Source="/spaceappschallenge_logo.png" Stretch="Fill"/>
+                    <TextBlock FontFamily="Segoe WP Light" FontSize="30" Margin="8,222,-4,2" TextWrapping="Wrap" HorizontalAlignment="Left" Width="452">
+                        This application was born during the Internation SpaceApps Challenge 2014 in Rome. 
+                        This was a great success in global cooperation for science enhancemente... share the mission, build your future!
+                    </TextBlock>
+                </Grid>
+            </phone:PivotItem>
+
         </phone:Pivot>
     </Grid>
-    
+
 </phone:PhoneApplicationPage>
