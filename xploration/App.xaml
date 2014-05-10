@@ -5,13 +5,11 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone">
 
-    <!--Risorse dell'applicazione-->
     <Application.Resources>
         <local:LocalizedStrings xmlns:local="clr-namespace:xploration" x:Key="LocalizedStrings"/>
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>
-        <!--Oggetto necessario che gestisce gli eventi durata dell'applicazione-->
         <shell:PhoneApplicationService
             Launching="Application_Launching" Closing="Application_Closing"
             Activated="Application_Activated" Deactivated="Application_Deactivated"/>

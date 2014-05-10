@@ -12,11 +12,22 @@ using xploration.Resources;
 namespace xploration
 {
     public partial class MainPage : PhoneApplicationPage
+    {
 
 
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        private void AcceptChallenge(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void eXplore(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MissionsAllin.xaml", UriKind.RelativeOrAbsolute));
         }
 
     }
