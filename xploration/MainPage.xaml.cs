@@ -22,7 +22,7 @@ namespace xploration
 
         private void AcceptChallenge(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Uri("/PreLaunch.xaml", UriKind.Relative));
         }
 
         private void eXplore(object sender, RoutedEventArgs e)

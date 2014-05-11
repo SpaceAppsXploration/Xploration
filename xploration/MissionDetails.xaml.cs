@@ -75,9 +75,10 @@ namespace xploration
             WebClient client = new WebClient();
             client.UseDefaultCredentials = true;
             string site = "http://www.spacexplore.it/api/missions/details/" + details_main.root_m.id.ToString();
+            client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_detail_DownloadStringCompleted);
             try
             {
-                client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_detail_DownloadStringCompleted);
+                client.DownloadStringAsync(new Uri(site, UriKind.Absolute));
             }
             catch
             {
@@ -85,7 +86,6 @@ namespace xploration
                     if (NavigationService.CanGoBack)
                         NavigationService.GoBack();
             }
-            client.DownloadStringAsync(new Uri(site, UriKind.Absolute));
         }
 
         private void client_detail_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
@@ -95,30 +95,40 @@ namespace xploration
                     if (NavigationService.CanGoBack)
                         NavigationService.GoBack();
 
-
-            //deserializing datas and saving them
-            List<RootDetail> d_list = JsonConvert.DeserializeObject<List<RootDetail>>(e.Result);
-            details_main.root_d_list = d_list;
-            //MISSION
-            List<RootDetail> eventOrFacts = details_main.root_d_list.OrderBy(x => x.detail_type).ToList();
-            Debug.WriteLine(eventOrFacts[0].ToString());
-
-            int i = 0;
-            while (i  < eventOrFacts.Count())
+            try
             {
-                if (eventOrFacts[i].detail_type == 3)
-                    eventOrFacts.RemoveAt(i);
-                if (eventOrFacts[i].detail_type == 4)
-                    eventOrFacts.RemoveAt(i);
-                if (eventOrFacts[i].detail_type == 7)
-                    eventOrFacts.RemoveAt(i);
-                if (eventOrFacts[i].detail_type == 9)
-                    eventOrFacts.RemoveAt(i);
-                if (eventOrFacts[i].detail_type == 10)
-                    eventOrFacts.RemoveAt(i);
-                i++;
+                //deserializing datas and saving them
+                List<RootDetail> d_list = JsonConvert.DeserializeObject<List<RootDetail>>(e.Result);
+                details_main.root_d_list = d_list;
+                //MISSION
+                List<RootDetail> eventOrFacts = details_main.root_d_list.OrderBy(x => x.detail_type).ToList();
+               
+
+                int i = 0;
+                while (i  < eventOrFacts.Count())
+                {
+                    if (eventOrFacts[i].detail_type == 3)
+                         eventOrFacts.RemoveAt(i);
+                    if (eventOrFacts[i].detail_type == 4)
+                         eventOrFacts.RemoveAt(i);
+                    if (eventOrFacts[i].detail_type == 7)
+                         eventOrFacts.RemoveAt(i);
+                    if (eventOrFacts[i].detail_type == 9)
+                         eventOrFacts.RemoveAt(i);
+                    if (eventOrFacts[i].detail_type == 10)
+                         eventOrFacts.RemoveAt(i);
+                    i++;
+                }
+                 EventOrFactOrArticleList.ItemsSource = eventOrFacts;
             }
-            EventOrFactOrArticleList.ItemsSource = eventOrFacts;
+            catch
+            {
+                if (MessageBox.Show("Okay, Houston, we've had a problem here... There is a problem on the internal database, please check it later") == MessageBoxResult.OK)
+                    if (NavigationService.CanGoBack)
+                        NavigationService.GoBack();
+            }
+
+            
         }
 
 

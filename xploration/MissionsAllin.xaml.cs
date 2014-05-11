@@ -63,9 +63,10 @@ namespace xploration
             WebClient client = new WebClient();
             client.UseDefaultCredentials = true;
             string site = "http://www.spacexplore.it/api/targets/";
+            client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_target_DownloadStringCompleted);
             try
             {
-                client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_target_DownloadStringCompleted);
+                client.DownloadStringAsync(new Uri(site, UriKind.Absolute));
             }
             catch
             {
@@ -73,7 +74,7 @@ namespace xploration
                     if (NavigationService.CanGoBack)
                         NavigationService.GoBack();
             }
-            client.DownloadStringAsync(new Uri(site, UriKind.Absolute));
+           
         }
 
         private void client_target_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
@@ -82,13 +83,21 @@ namespace xploration
                 if (MessageBox.Show("Okay, Houston, we've had a problem here... There is a problem on the internal database, please check it later") == MessageBoxResult.OK)
                     if (NavigationService.CanGoBack)
                         NavigationService.GoBack();
+            try
+            {
+                //deserializing datas and saving them
+                IsolatedStorageSettings missionSettings = IsolatedStorageSettings.ApplicationSettings;
+                List<RootPlanet> targetList = JsonConvert.DeserializeObject<List<RootPlanet>>(e.Result);
+                missionSettings["targetList"] = (List<RootPlanet>)targetList;
+            }
+            catch
+            {
+                Debug.WriteLine("ERROR");
+            }
             
-            
-            //deserializing datas and saving them
-            IsolatedStorageSettings missionSettings = IsolatedStorageSettings.ApplicationSettings;
-            List<RootPlanet> targetList = JsonConvert.DeserializeObject<List<RootPlanet>>(e.Result);
-            missionSettings["targetList"] = (List<RootPlanet>)targetList;
         }
+
+
 
         //Downloading the mission list (all of them, from NASA ESA and JAXA)
         public void mission_recovery()
@@ -96,9 +105,10 @@ namespace xploration
             WebClient client = new WebClient();
             client.UseDefaultCredentials = true;
             string site = "http://www.spacexplore.it/api/missions/";
+            client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_missions_DownloadStringCompleted);
             try
             {
-                client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_missions_DownloadStringCompleted);
+                client.DownloadStringAsync(new Uri(site, UriKind.Absolute));
             }
             catch
             {
@@ -106,7 +116,7 @@ namespace xploration
                     if (NavigationService.CanGoBack)
                         NavigationService.GoBack();
             }
-            client.DownloadStringAsync(new Uri(site, UriKind.Absolute));
+            
         }
 
         private void client_missions_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
@@ -115,30 +125,40 @@ namespace xploration
                 if (MessageBox.Show("Okay, Houston, we've had a problem here... There is a problem on the internal database, please check it later") == MessageBoxResult.OK)
                     if (NavigationService.CanGoBack)
                         NavigationService.GoBack();
-
-            IsolatedStorageSettings missionSettings = IsolatedStorageSettings.ApplicationSettings;
-            List<RootMission> missionList = JsonConvert.DeserializeObject<List<RootMission>>(e.Result);
-            
-            //reducing the original list into a more efficient one to eliminate the duplicated objects 
-            List<RootMission> missionListNew = new List<RootMission>();
-            foreach (RootMission rootmission in missionList)
-                if (missionListNew.Count() != 0)
-                {
-                    rootmission.target_list = new List<int>() {rootmission.target};
-                    bool found = false;
-                    foreach (RootMission rootmission_new in missionListNew)
+            try
+            {
+                IsolatedStorageSettings missionSettings = IsolatedStorageSettings.ApplicationSettings;
+                List<RootMission> missionList = JsonConvert.DeserializeObject<List<RootMission>>(e.Result);
+                //reducing the original list into a more efficient one to eliminate the duplicated objects 
+                List<RootMission> missionListNew = new List<RootMission>();
+                foreach (RootMission rootmission in missionList)
+                    if (missionListNew.Count() != 0)
+                    {
+                        rootmission.target_list = new List<int>() {rootmission.target};
+                        bool found = false;
+                        foreach (RootMission rootmission_new in missionListNew)
                         if (rootmission.name == rootmission_new.name)
                         {
                             rootmission_new.target_list.Add(rootmission.target);
                             found = true;
                         }
-                    if (!found) { missionListNew.Add(rootmission); }
-                }
-                else { missionListNew.Add(rootmission); }
+                        if (!found) { missionListNew.Add(rootmission); }
+                    }
+                    else { missionListNew.Add(rootmission); }
+               missionSettings["missionList"] = (List<RootMission>)missionListNew;
+               Visualize();
+          }
+          catch
+          {
+              if (MessageBox.Show("Okay, Houston, we've had a problem here... There is a problem on the internal database, please check it later") == MessageBoxResult.OK)
+                  if (NavigationService.CanGoBack)
+                      NavigationService.GoBack();
+          }
 
-            missionSettings["missionList"] = (List<RootMission>)missionListNew;
-            Visualize();
-        }
+            }
+            
+            
+            
 
 
         //visualizing data from the storage

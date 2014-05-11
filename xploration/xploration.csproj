@@ -94,6 +94,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DestinationPage.xaml.cs">
+      <DependentUpon>DestinationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GoalPage.xaml.cs">
+      <DependentUpon>GoalPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DetailsMain.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
@@ -105,8 +111,8 @@
     <Compile Include="MissionsAllin.xaml.cs">
       <DependentUpon>MissionsAllin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PlanetPage.xaml.cs">
-      <DependentUpon>PlanetPage.xaml</DependentUpon>
+    <Compile Include="PreLaunch.xaml.cs">
+      <DependentUpon>PreLaunch.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
@@ -124,6 +130,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="DestinationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GoalPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,7 +150,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PlanetPage.xaml">
+    <Page Include="PreLaunch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -157,6 +171,19 @@
     <Content Include="Assets\Logos\facebook_logo.png" />
     <Content Include="Assets\Logos\rss.png" />
     <Content Include="Assets\Logos\twitter_logo.png" />
+    <Content Include="Assets\Simulation\Destinations\Asteroid.png" />
+    <Content Include="Assets\Simulation\Destinations\Comet.png" />
+    <Content Include="Assets\Simulation\Destinations\DeepSpace.png" />
+    <Content Include="Assets\Simulation\Destinations\Earth.png" />
+    <Content Include="Assets\Simulation\Destinations\Jupiter.png" />
+    <Content Include="Assets\Simulation\Destinations\Mars.png" />
+    <Content Include="Assets\Simulation\Destinations\Mercury.png" />
+    <Content Include="Assets\Simulation\Destinations\Moon.png" />
+    <Content Include="Assets\Simulation\Destinations\Neptune.png" />
+    <Content Include="Assets\Simulation\Destinations\Saturn.png" />
+    <Content Include="Assets\Simulation\Destinations\Uranus.png" />
+    <Content Include="Assets\Simulation\Destinations\Venus.png" />
+    <Content Include="Assets\Simulation\rocket.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
