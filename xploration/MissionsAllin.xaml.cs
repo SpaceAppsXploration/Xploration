@@ -145,17 +145,47 @@ namespace xploration
         public void Visualize()
         {
             IsolatedStorageSettings missionSettings = IsolatedStorageSettings.ApplicationSettings;
-                
+            
+            //retrieving data already saved
+            List<RootMission> missionList = (List<RootMission>)missionSettings["missionList"];
+
+            //dividing the results by the agency
+            List<RootMission> NASAList = new List<RootMission>();
+            List<RootMission> ESAList = new List<RootMission>();
+            List<RootMission> JAXAList = new List<RootMission>();
+            
+            foreach (RootMission root in missionList)
+            {
+                if (root.nasa == true)
+                    NASAList.Add(root);
+                if (root.esa == true)
+                    ESAList.Add(root);
+                if (root.jaxa == true)
+                    JAXAList.Add(root);
+            }
+
+            
             //this sort the list by alphabetical order
-            List<AlphaKeyGroup<RootMission>> DataSource = AlphaKeyGroup<RootMission>.CreateGroups((List<RootMission>)missionSettings["missionList"],
+            List<AlphaKeyGroup<RootMission>> DataSourceNASA = AlphaKeyGroup<RootMission>.CreateGroups(NASAList,
                                                       System.Threading.Thread.CurrentThread.CurrentUICulture,
                                                       (RootMission mission) => { return mission.name; }, true);
 
+            List<AlphaKeyGroup<RootMission>> DataSourceESA = AlphaKeyGroup<RootMission>.CreateGroups(ESAList,
+                                                      System.Threading.Thread.CurrentThread.CurrentUICulture,
+                                                      (RootMission mission) => { return mission.name; }, true);
 
-            missionList.ItemsSource = DataSource;
+            List<AlphaKeyGroup<RootMission>> DataSourceJAXA = AlphaKeyGroup<RootMission>.CreateGroups(JAXAList,
+                                                      System.Threading.Thread.CurrentThread.CurrentUICulture,
+                                                      (RootMission mission) => { return mission.name; }, true);
+
+            //in the end visualizing the results...
+            missionListNASA.ItemsSource = DataSourceNASA;
+            missionListESA.ItemsSource = DataSourceESA;
+            missionListJAXA.ItemsSource = DataSourceJAXA;
+
             progBar.IsIndeterminate = false;
             Downloading.Visibility = Visibility.Collapsed;
-            missionList.Visibility = Visibility.Visible;
+            agenciesPivot.Visibility = Visibility.Visible;
         }
 
 

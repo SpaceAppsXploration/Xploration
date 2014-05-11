@@ -143,8 +143,14 @@ namespace xploration
             //list of targets
             List<RootPlanet> targetsList = new List<RootPlanet>();
             List<RootPlanet> rootplanetlist = (List<RootPlanet>)detailSettings["targetList"];
-            foreach (int i in details_main.root_m.target_list)
-                targetsList.Add(rootplanetlist[i - 1]);
+            if (details_main.root_m.target_list != null)
+            {
+                foreach (int i in details_main.root_m.target_list)
+                    targetsList.Add(rootplanetlist[i - 1]);
+            }
+            else
+                targetsList.Add(rootplanetlist[details_main.root_m.target]);
+            
             mission_targets.ItemsSource = targetsList;
        
             //picture
@@ -152,8 +158,8 @@ namespace xploration
             {
                 BitmapImage bmi = new BitmapImage(new Uri(details_main.root_m.image_url, UriKind.Absolute));
                 mission_picture.Source = bmi;
-                mission_picture.Height = 300;
-                mission_picture.Width = 300;
+                mission_picture.Height = 400;
+                mission_picture.Width = 400;
             }
                         
            

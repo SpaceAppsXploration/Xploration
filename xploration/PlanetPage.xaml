@@ -1,0 +1,74 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="xploration.PlanetPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Background/bg.png"></ImageBrush>
+        </Grid.Background>
+        
+        
+        
+        <phone:Pivot x:Name="physicsPivot" Margin="0,-31,0,0" Visibility="Visible">
+            <phone:PivotItem Header="about">
+                <Grid>
+                    <ScrollViewer>
+                        <StackPanel MaxHeight="2000">
+                            <TextBlock x:Name="planet_name" FontFamily="Segoe WP Light" FontSize="32"/>
+                            <Image x:Name="TargetImage" Source="{Binding}"></Image>
+                            <TextBlock FontFamily="Segoe WP Light" FontSize="32" FontWeight="Medium">characteristics:</TextBlock>
+                            <TextBlock x:Name="planet_characteristics" FontFamily="Segoe WP Light" FontSize="38"  TextWrapping="Wrap"></TextBlock>
+
+                            <TextBlock FontFamily="Segoe WP Light" FontSize="32" FontWeight="Medium">curiosities: </TextBlock>
+                            <TextBlock x:Name="planet_curosities" FontFamily="Segoe WP Light" FontSize="38"  TextWrapping="Wrap"></TextBlock>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem Header="physics">
+                <Grid>
+                    <ScrollViewer>
+                        <StackPanel MaxHeight="2000">
+                            <TextBlock x:Name="discover_text" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="rings_text" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="light_text" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="mass_text" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="diameter_text" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="density_text" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="gravity_text" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="l_day_text" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="l_year_text" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="eccent_text" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="distance_text" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="perihelion_text" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="aphelion_text" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="inclination_text" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="active_text" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
+                            <TextBlock x:Name="atmosphere_text" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+
+        <ProgressBar x:Name="progBar" IsIndeterminate="False" Foreground="Cyan" Background="Transparent" Margin="0,616,0,10"/>
+        <TextBlock x:Name="Downloading" FontFamily="Segoe WP Light" FontSize="45" TextWrapping="Wrap" TextAlignment="Center" Margin="0,130,0,142" Visibility="Collapsed">
+            Setting up 
+            <LineBreak/>
+            a few things...
+        </TextBlock>
+    </Grid>
+    
+</phone:PhoneApplicationPage>

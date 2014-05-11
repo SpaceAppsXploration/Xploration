@@ -105,6 +105,9 @@
     <Compile Include="MissionsAllin.xaml.cs">
       <DependentUpon>MissionsAllin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PlanetPage.xaml.cs">
+      <DependentUpon>PlanetPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -113,6 +116,7 @@
     </Compile>
     <Compile Include="RootDetail.cs" />
     <Compile Include="RootMission.cs" />
+    <Compile Include="RootPhysics.cs" />
     <Compile Include="RootPlanet.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MissionsAllin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PlanetPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

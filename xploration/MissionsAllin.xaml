@@ -53,23 +53,17 @@
     <Grid x:Name="LayoutRoot">
         <Grid.RowDefinitions>
             <RowDefinition Height="131*"/>
-            <RowDefinition Height="61*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.Background>
             <ImageBrush ImageSource="/Assets/Background/bg.png"></ImageBrush>
         </Grid.Background>
 
-        <TextBlock x:Name="Downloading" FontFamily="Segoe WP Light" FontSize="45" TextWrapping="Wrap" TextAlignment="Center" Margin="0,130,0,142">
-            Setting up 
-            <LineBreak/>
-            a few things...
-        </TextBlock>
-
-        <ProgressBar x:Name="progBar" IsIndeterminate="True" Foreground="Cyan" Background="Transparent" Margin="0,86,0,10" Grid.Row="1"/>
-
-        <phone:LongListSelector
-                     x:Name="missionList"
-                     Visibility="Collapsed"
+        <phone:Pivot x:Name="agenciesPivot" Visibility="Collapsed">
+            <phone:PivotItem Header="nasa" Margin="12,28,12,-4">
+                <phone:LongListSelector
+                     x:Name="missionListNASA"
+                     Visibility="Visible"
                      JumpListStyle="{StaticResource JumpListStyle}"
                      Background="Transparent"
                      GroupHeaderTemplate="{StaticResource GroupHeaderTemplate}"
@@ -77,6 +71,43 @@
                      LayoutMode="List"
                      IsGroupingEnabled="true"
                      HideEmptyGroups ="true" Grid.RowSpan="2"/>
+            </phone:PivotItem>
+
+            <phone:PivotItem Header="esa" Margin="12,28,12,-240">
+                <phone:LongListSelector
+                     x:Name="missionListESA"
+                     Visibility="Visible"
+                     JumpListStyle="{StaticResource JumpListStyle}"
+                     Background="Transparent"
+                     GroupHeaderTemplate="{StaticResource GroupHeaderTemplate}"
+                     ItemTemplate="{StaticResource MissionItemTemplate}"
+                     LayoutMode="List"
+                     IsGroupingEnabled="true"
+                     HideEmptyGroups ="true" Grid.RowSpan="2"/>
+            </phone:PivotItem>
+
+            <phone:PivotItem Header="jaxa" Margin="12,28,12,-240">
+                <phone:LongListSelector
+                     x:Name="missionListJAXA"
+                     Visibility="Visible"
+                     JumpListStyle="{StaticResource JumpListStyle}"
+                     Background="Transparent"
+                     GroupHeaderTemplate="{StaticResource GroupHeaderTemplate}"
+                     ItemTemplate="{StaticResource MissionItemTemplate}"
+                     LayoutMode="List"
+                     IsGroupingEnabled="true"
+                     HideEmptyGroups ="true" Grid.RowSpan="2"/>
+            </phone:PivotItem>
+        </phone:Pivot>
+        <TextBlock x:Name="Downloading" FontFamily="Segoe WP Light" FontSize="45" TextWrapping="Wrap" TextAlignment="Center" Margin="0,130,0,142">
+            Setting up 
+            <LineBreak/>
+            a few things...
+        </TextBlock>
+
+        <ProgressBar x:Name="progBar" IsIndeterminate="True" Foreground="Cyan" Background="Transparent" Margin="6,620,-6,0" RenderTransformOrigin="0.5,0.5"/>
+
+
 
     </Grid>
 

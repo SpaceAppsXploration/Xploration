@@ -30,25 +30,27 @@
             <ImageBrush ImageSource="/Assets/Background/bg.png"></ImageBrush>
         </Grid.Background>
 
-        <phone:Pivot Margin="0,-26,0,-10">
+        <phone:Pivot Margin="0,-14,0,-10">
             <phone:PivotItem Header="about">
                 <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Visible">
                     <StackPanel MaxHeight="1000">
-                        <TextBlock x:Name="mission_name" FontFamily="Segoe WP Light" FontSize="35" TextWrapping="Wrap" FontWeight="Medium" Text="{Binding}" Height="98"/>
+                        <TextBlock x:Name="mission_name" FontFamily="Segoe WP Light" FontSize="38" TextWrapping="Wrap"  Text="{Binding}" Height="114"/>
                         <Image x:Name="mission_picture" Source="{Binding}"/>
-                        
-                        <TextBlock FontFamily="Segoe WP Light" FontSize="38">launch date:</TextBlock>
-                        <TextBlock x:Name="mission_launch_date" FontFamily="Segoe WP Light" FontSize="32" FontWeight="Medium" TextWrapping="Wrap"><LineBreak/></TextBlock>
 
-                        <TextBlock FontFamily="Segoe WP Light" FontSize="38">mission status:</TextBlock>
-                        <TextBlock x:Name="mission_status" FontFamily="Segoe WP Light" FontSize="32" FontWeight="Medium"><LineBreak/></TextBlock>
+                        <TextBlock FontFamily="Segoe WP Light" FontSize="32" FontWeight="Medium" >launch date:</TextBlock>
+                        <TextBlock x:Name="mission_launch_date" FontFamily="Segoe WP Light" FontSize="38"  TextWrapping="Wrap"><LineBreak/></TextBlock>
 
-                        <TextBlock FontFamily="Segoe WP Light" FontSize="38">mission targets:</TextBlock>
+                        <TextBlock FontFamily="Segoe WP Light" FontSize="32" FontWeight="Medium">mission status:</TextBlock>
+                        <TextBlock x:Name="mission_status" FontFamily="Segoe WP Light" FontSize="38" ><LineBreak/></TextBlock>
+
+                        <TextBlock FontFamily="Segoe WP Light" FontSize="32" FontWeight="Medium">mission targets:</TextBlock>
                         <phone:LongListSelector x:Name="mission_targets" ItemsSource="{Binding}">
                             <phone:LongListSelector.ItemTemplate>
                                 <DataTemplate>
-                                    <TextBlock FontFamily="Segoe WP Light" FontSize="32" FontWeight="Medium" Text="{Binding name}" TextWrapping="Wrap"/>
-                                </DataTemplate>
+                                    <StackPanel Tag="{Binding id}">
+                                        <TextBlock FontFamily="Segoe WP Light" FontSize="38" Text="{Binding name}" TextWrapping="Wrap"/>
+                                    </StackPanel>
+                               </DataTemplate>
                             </phone:LongListSelector.ItemTemplate>
                         </phone:LongListSelector>
 
@@ -77,7 +79,7 @@
                     <Image Margin="104,-26,99,296" Source="/spaceappschallenge_logo.png" Stretch="Fill"/>
                     <TextBlock FontFamily="Segoe WP Light" FontSize="30" Margin="8,222,-4,2" TextWrapping="Wrap" HorizontalAlignment="Left" Width="452">
                         This application was born during the Internation SpaceApps Challenge 2014 in Rome. 
-                        This was a great success in global cooperation for science enhancemente... share the mission, build your future!
+                        This was a great success in global cooperation for science enhancement... share the mission, build your future!
                     </TextBlock>
                 </Grid>
             </phone:PivotItem>
