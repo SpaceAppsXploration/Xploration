@@ -64,9 +64,10 @@ namespace xploration
             if (e.Error != null)
                 if (MessageBox.Show("Okay, Houston, we've had a problem here... There is a problem on the internal database, please check it later") == MessageBoxResult.OK)
                     if (NavigationService.CanGoBack)
-                        NavigationService.GoBack();
-            try
-            {
+                       NavigationService.GoBack();
+           else
+                try
+                {
                 //deserializing datas and saving them
                 IsolatedStorageSettings destinationSettings = IsolatedStorageSettings.ApplicationSettings;
                 List<RootPlanet> destinationList = JsonConvert.DeserializeObject<List<RootPlanet>>(e.Result);
@@ -108,8 +109,16 @@ namespace xploration
                    destinationText.Text = destination.characteristics;
                    destinationText.Visibility = Visibility.Visible;
                    chooseButton.Tag = destination.slug;
+
+                   Simulation.destination_complete = destination.name;
                }
             destinationPivot.SelectedIndex = 1;
+        }
+
+        private void ChooseDestination_Click(object sender, RoutedEventArgs e)
+        {
+            Simulation.destination = (sender as Button).Tag.ToString();
+            NavigationService.GoBack();
         }
 
 

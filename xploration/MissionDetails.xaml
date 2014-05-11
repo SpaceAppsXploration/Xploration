@@ -76,7 +76,7 @@
                         <Image Source="/Assets/Logos/twitter_logo.png" Grid.Column="1" toolkit:TiltEffect.IsTiltEnabled="True"></Image>
                         <Image Source="/Assets/Logos/rss.png" Grid.Column="2" toolkit:TiltEffect.IsTiltEnabled="True"></Image>
                     </Grid>
-                    <Image Margin="104,-26,99,296" Source="/spaceappschallenge_logo.png" Stretch="Fill"/>
+                    <Image Margin="104,-26,99,296" Source="/Assets/Logos/spaceappschallenge_logo.png" Stretch="Fill"/>
                     <TextBlock FontFamily="Segoe WP Light" FontSize="30" Margin="8,222,-4,2" TextWrapping="Wrap" HorizontalAlignment="Left" Width="452">
                         This application was born during the Internation SpaceApps Challenge 2014 in Rome. 
                         This was a great success in global cooperation for science enhancement... share the mission, build your future!

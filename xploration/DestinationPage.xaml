@@ -106,8 +106,8 @@
                             <TextBlock x:Name="destinationText" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"  Visibility="Collapsed">No destination selected. Please select a destination to read some informations about it.</TextBlock>
                         </StackPanel>
                     </ScrollViewer>
-                    <TextBlock x:Name="Disclaimer" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap" Margin="13,161,11,366">No destination selected. Please select a destination to read some informations about it.</TextBlock>
-                        <Button x:Name="chooseButton" BorderThickness="0,2,0,2" Margin="-23,555,-25,-4">
+                    <TextBlock x:Name="Disclaimer" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap" Margin="13,161,11,366" TextAlignment="Center">No destination selected. Please select a destination to read some informations about it.</TextBlock>
+                        <Button x:Name="chooseButton" BorderThickness="0,2,0,2" Margin="-23,555,-25,-4" Click="ChooseDestination_Click">
                             <TextBlock Text="choose destination" FontFamily="Segoe WP Light" FontSize="32"></TextBlock>
                         </Button>
                     

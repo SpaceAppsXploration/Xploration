@@ -28,7 +28,7 @@
                         <TextBlock Text="how far will you go?" FontFamily="Segoe WP Light" FontSize="32"></TextBlock>
                     </Button>
 
-                    <Button BorderThickness="0,2,0,2" Margin="-18,439,-30,131" Click="GoalClick">
+                    <Button BorderThickness="0,2,0,2" Margin="-24,439,-24,131" Click="GoalClick">
          
                         <TextBlock Text="what is your goal?" FontFamily="Segoe WP Light" FontSize="32"></TextBlock>
                     </Button>
@@ -39,14 +39,15 @@
             <phone:PivotItem Header="project">
                 <Grid>
                     <TextBlock Text="your destination:" FontFamily="Segoe WP Light" FontSize="32" FontWeight="Medium" TextWrapping="Wrap" Margin="32,51,17,551"></TextBlock>
-                    <TextBlock x:Name="destinationText" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap" Margin="33,115,16,487"></TextBlock>
+                    <TextBlock x:Name="destinationText" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap" Margin="31,103,18,469"></TextBlock>
 
                     <TextBlock Text="your goal:" FontFamily="Segoe WP Light" FontSize="32" FontWeight="Medium" TextWrapping="Wrap" Margin="28,198,21,404"></TextBlock>
-                    <TextBlock x:Name="goalText" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap" Margin="29,262,20,340"></TextBlock>
+                    <TextBlock x:Name="goalText" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap" Margin="29,252,20,300"></TextBlock>
 
-                    <Button BorderThickness="0,2,0,2" Margin="-18,443,-30,119">
+                    <Button BorderThickness="0,2,0,2" Margin="-24,435,-24,133" Click="PreLaunch_Click">
                         <TextBlock Text="pre-launch check" FontFamily="Segoe WP Light" FontSize="32"></TextBlock>
                     </Button>
+                    <ProgressBar x:Name="progBar" IsIndeterminate="False" Foreground="Cyan" Background="Transparent" Margin="-12,512,-12,2"/>
 
                 </Grid>
             </phone:PivotItem>

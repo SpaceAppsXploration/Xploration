@@ -26,20 +26,41 @@
 
         <Grid x:Name="goalsGrid" Grid.Row="0" Margin="14,21,10,139" Visibility="Visible">
 
-            <StackPanel>
-                <TextBlock Text ="Earth observation" FontFamily="Segoe WP Light" TextWrapping="Wrap" Margin ="40, 20, 10, 10"  FontSize="40" TextAlignment="Left" 
-                           toolkit:TiltEffect.IsTiltEnabled="True" Tag="EO" Tap="Goal_Click"/>
-                <TextBlock Text ="Astronomical object observation" FontFamily="Segoe WP Light" TextWrapping="Wrap" Margin ="40, 20, 10, 10"  FontSize="40" TextAlignment="Left" 
-                           toolkit:TiltEffect.IsTiltEnabled="True" Tag="AOO" Tap="Goal_Click"/>
-                <TextBlock Text ="Deep space observation" FontFamily="Segoe WP Light" TextWrapping="Wrap" Margin ="40, 20, 10, 10"  FontSize="40" TextAlignment="Left" 
-                           toolkit:TiltEffect.IsTiltEnabled="True" Tag="DSO" Tap="Goal_Click"/>
-                <TextBlock Text ="Atmosphere analysis" FontFamily="Segoe WP Light" TextWrapping="Wrap" Margin ="40, 20, 10, 10"  FontSize="40" TextAlignment="Left" 
-                           toolkit:TiltEffect.IsTiltEnabled="True" Tag="AA" Tap="Goal_Click"/>
-                <TextBlock Text ="Data collection" FontFamily="Segoe WP Light" TextWrapping="Wrap" Margin ="40, 20, 10, 10"  FontSize="40" TextAlignment="Left" 
-                           toolkit:TiltEffect.IsTiltEnabled="True" Tag="DC" Tap="Goal_Click"/>
-                <TextBlock Text ="Telecommunications" FontFamily="Segoe WP Light" TextWrapping="Wrap" Margin ="40, 20, 10, 10"  FontSize="40" TextAlignment="Left"
-                           toolkit:TiltEffect.IsTiltEnabled="True" Tag="TLC" Tap="Goal_Click"/>
+            <StackPanel x:Name="missionsParent" Margin="0,-12,0,12">
+                <Border BorderBrush="Transparent" BorderThickness="2" Tag="0">
+                    <TextBlock Text ="Earth observation" FontFamily="Segoe WP Light" TextWrapping="Wrap" Margin ="40, 20, 10, 10"  FontSize="40" TextAlignment="Left" 
+                           toolkit:TiltEffect.IsTiltEnabled="True" Tag="earth_obs" Tap="Goal_Click"/>
+                </Border>
+                
+                <Border BorderBrush="Transparent" BorderThickness="2" Tag="1">
+                    <TextBlock Text ="Astronomical object observation" FontFamily="Segoe WP Light" TextWrapping="Wrap" Margin ="40, 20, 10, 10"  FontSize="40" TextAlignment="Left" 
+                           toolkit:TiltEffect.IsTiltEnabled="True" Tag="cel_body_obs" Tap="Goal_Click"/>
+                </Border>
+                
+                <Border BorderBrush="Transparent" BorderThickness="2" Tag="2">
+                    <TextBlock Text ="Deep space observation" FontFamily="Segoe WP Light" TextWrapping="Wrap" Margin ="40, 20, 10, 10"  FontSize="40" TextAlignment="Left" 
+                           toolkit:TiltEffect.IsTiltEnabled="True" Tag="deep_space_obs" Tap="Goal_Click"/>
+                </Border>
+                
+                <Border BorderBrush="Transparent" BorderThickness="2" Tag="3">
+                    <TextBlock Text ="Atmosphere analysis" FontFamily="Segoe WP Light" TextWrapping="Wrap" Margin ="40, 20, 10, 10"  FontSize="40" TextAlignment="Left" 
+                           toolkit:TiltEffect.IsTiltEnabled="True" Tag="atm_analysis" Tap="Goal_Click"/>
+                </Border>
+                
+                <Border BorderBrush="Transparent" BorderThickness="2" Tag="4">
+                    <TextBlock Text ="Sample collection" FontFamily="Segoe WP Light" TextWrapping="Wrap" Margin ="40, 20, 10, 10"  FontSize="40" TextAlignment="Left" 
+                           toolkit:TiltEffect.IsTiltEnabled="True" Tag="sample_collect" Tap="Goal_Click"/>
+                </Border>
+                
+                <Border BorderBrush="Transparent" BorderThickness="2" Tag="5">
+                    <TextBlock Text ="Telecommunications" FontFamily="Segoe WP Light" TextWrapping="Wrap" Margin ="40, 20, 10, 10"  FontSize="40" TextAlignment="Left"
+                           toolkit:TiltEffect.IsTiltEnabled="True" Tag="telecom" Tap="Goal_Click"/>
+                </Border>
             </StackPanel>
+
+            <Button x:Name="chooseButton" BorderThickness="0,2,0,2" Margin="-26,645,-22,-116" Click="ChooseMission_Click">
+                <TextBlock Text="select mission" FontFamily="Segoe WP Light" FontSize="32"></TextBlock>
+            </Button>
 
         </Grid>
 

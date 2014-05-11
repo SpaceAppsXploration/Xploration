@@ -124,6 +124,7 @@
     <Compile Include="RootMission.cs" />
     <Compile Include="RootPhysics.cs" />
     <Compile Include="RootPlanet.cs" />
+    <Compile Include="Simulation.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -199,7 +200,7 @@
     <Content Include="Assets\Tiles\IconicTileSmall.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="spaceappschallenge_logo.png" />
+    <Content Include="Assets\Logos\spaceappschallenge_logo.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Check.png" />

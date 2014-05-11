@@ -94,7 +94,7 @@ namespace xploration
                 if (MessageBox.Show("Okay, Houston, we've had a problem here... There is a problem on the internal database, please check it later") == MessageBoxResult.OK)
                     if (NavigationService.CanGoBack)
                         NavigationService.GoBack();
-
+            else
             try
             {
                 //deserializing datas and saving them
