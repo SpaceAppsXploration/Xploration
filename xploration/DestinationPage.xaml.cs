@@ -65,8 +65,7 @@ namespace xploration
                 if (MessageBox.Show("Okay, Houston, we've had a problem here... There is a problem on the internal database, please check it later") == MessageBoxResult.OK)
                     if (NavigationService.CanGoBack)
                        NavigationService.GoBack();
-           else
-                try
+            try
                 {
                 //deserializing datas and saving them
                 IsolatedStorageSettings destinationSettings = IsolatedStorageSettings.ApplicationSettings;
@@ -105,7 +104,7 @@ namespace xploration
                    //visualizing ad saving in the chooseButton tag!
                    BitmapImage bmi = new BitmapImage(new Uri(destination.image_url));
                    destinationImage.Source = bmi;
-                   Debug.WriteLine(destination.characteristics);
+
                    destinationText.Text = destination.characteristics;
                    destinationText.Visibility = Visibility.Visible;
                    chooseButton.Tag = destination.slug;

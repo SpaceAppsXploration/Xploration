@@ -1,0 +1,177 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="xploration.TechPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    <Grid x:Name="LayoutRoot" Height="768" VerticalAlignment="Bottom">
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/Background/bg.png"></ImageBrush>
+        </Grid.Background>
+        
+        <phone:Pivot Margin="0,-26,0,0">
+            <phone:PivotItem Header="technical">
+                <Grid>
+                    <Image Source="/Assets/Simulation/gear.png" Margin="96,-16,92,480"></Image>
+                    <TextBlock FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap" Margin="14,218,-8,20">
+                        Mission control approved your launch! In this section you can decide whic are the best components
+                        to fill your satellite with. They are the eyes, the muscles and the brain of your space exploration mission. Choose them
+                        wisely and prepare your spacecraft to launch!
+                    </TextBlock>
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem Header="payload" Margin="12,38,12,0">
+                <Grid>
+                    <ScrollViewer>
+                    <StackPanel>
+
+                        <Border Background="#7F000000" Margin="5, 5, 5, 5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <StackPanel Width="auto" Height="auto">
+                                <StackPanel x:Name="st1" Orientation="Horizontal">
+                                        <CheckBox Width="370" FontSize="30" Content="Optical sensor" FontFamily="Segoe WP Light" Tag="opt_sensor"/>
+                                </StackPanel>
+                                <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
+                                   It's like a camera, but in space!
+                                </TextBlock>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Background="#7F000000" Margin="5, 5, 5, 5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <StackPanel Width="auto" Height="auto">
+                                <StackPanel x:Name="st2" Orientation="Horizontal">
+                                    <CheckBox Width="370" FontSize="30" Content="Radio sensor" FontFamily="Segoe WP Light" Tag="radio_sensor"/>
+                                </StackPanel>
+                                    <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
+                                      Similar to the optical sensor, but on different wavelenghts.
+                                    </TextBlock>
+                                </StackPanel>
+                        </Border>
+
+                        <Border Background="#7F000000" Margin="5, 5, 5, 5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <StackPanel Width="auto" Height="auto">
+                                <StackPanel x:Name="st3" Orientation="Horizontal">
+                                    <CheckBox Width="370" FontSize="30" Content="Spectrometer" FontFamily="Segoe WP Light" Tag="spectrometer" />
+                                </StackPanel>
+                                    <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
+                                      It can dedect and analyze almost everything, depends on your needs
+                                    </TextBlock>
+                                </StackPanel>
+                        </Border>
+
+                        <Border Background="#7F000000" Margin="5, 5, 5, 5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <StackPanel Width="auto" Height="auto">
+                                <StackPanel x:Name="st4" Orientation="Horizontal">
+                                    <CheckBox Width="370" FontSize="30" Content="Probe" FontFamily="Segoe WP Light" Tag="probe"/>
+                                </StackPanel>
+                                    <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
+                                       It can be sent on celestial bodies to collect samples and analyze them.                                    
+                                    </TextBlock>
+                                </StackPanel>
+                        </Border>
+
+                        <Border Background="#7F000000" Margin="5, 5, 5, 5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <StackPanel Width="auto" Height="auto">
+                                <StackPanel x:Name="st5" Orientation="Horizontal">
+                                    <CheckBox Width="370" FontSize="30" Content="Amplifier" FontFamily="Segoe WP Light" Tag="amplifier"/>
+                                </StackPanel>
+                                    <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
+                                       Whenever you need to amplify a signal, whichever it is.
+                                    </TextBlock>
+                                </StackPanel>
+                        </Border>
+                    </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem Header="bus">
+                <Grid>
+                    <ScrollViewer>
+                        <StackPanel>
+                            <StackPanel>
+
+                                <TextBlock FontSize="40" FontFamily="Segoe WP Light" Text="Thermal control"/>
+                                <CheckBox Content="Active"  Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+                                <CheckBox Content="Passive"  Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+                                
+                                <TextBlock />
+                                
+                                <TextBlock FontSize="40" FontFamily="Segoe WP Light" Text="Primary power"/>
+                                <CheckBox Content="Solar arrays" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+                                <CheckBox Content="Radioisotope thermal generator" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+
+                                <TextBlock />
+                                
+                                <TextBlock FontSize="40" FontFamily="Segoe WP Light" Text="Backup power"/>
+                                <CheckBox Content="Batteries"  Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+                                <CheckBox Content="Fuel cells" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+
+                                <TextBlock />
+                                
+                                <TextBlock FontSize="40" FontFamily="Segoe WP Light" Text="Communication"/>
+                                <CheckBox Content="Monodirectional" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+                                <CheckBox Content="Omnidirectional" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+
+                                <TextBlock />
+                                
+                                <TextBlock FontSize="40" FontFamily="Segoe WP Light" Text="AODCS"/>
+                                <CheckBox Content="Robust control" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+                                <CheckBox Content="Simple control" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+
+                                <TextBlock />
+                                
+                                <TextBlock FontSize="40" FontFamily="Segoe WP Light" Text="Propulsion"/>
+                                <CheckBox Content="Electric" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+                                <CheckBox Content="Chemical" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+
+
+                                <TextBlock />
+                                
+                                <TextBlock FontSize="40" FontFamily="Segoe WP Light" Text="Structure"/>
+                                <CheckBox Content="Standard" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+                                <CheckBox Content="High resistance" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+
+                                <TextBlock />
+                                
+                                <TextBlock FontSize="40" FontFamily="Segoe WP Light" Text="C&amp;DH"/>
+                                <CheckBox Content="Standard" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+                                <CheckBox Content="Optimized" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+                                <TextBlock/>
+
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+                </Grid>
+            </phone:PivotItem>
+
+            <phone:PivotItem Header="launch">
+                <Grid>
+                    <Image Source="/Assets/Simulation/satellite.png" Margin="0,-16,2,442"></Image>
+                    <TextBlock FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap" Margin="14,218,16,396">
+                        Mission scheduled.
+                    </TextBlock>
+                    <StackPanel Margin="16,266,0,198">
+                        <TextBlock x:Name="destinationText" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
+                        <TextBlock x:Name="missionText" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap" Margin="14,270,2,344"/>
+                    </StackPanel>
+
+                    <Button x:Name="chooseButton" BorderThickness="0,2,0,2" Margin="-28,545,-20,8">
+                        <TextBlock Text="launch your mission" FontFamily="Segoe WP Light" FontSize="32"></TextBlock>
+                    </Button>
+
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
+    </Grid>
+    
+</phone:PhoneApplicationPage>

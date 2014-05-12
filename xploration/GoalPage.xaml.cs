@@ -18,16 +18,16 @@ namespace xploration
             InitializeComponent();
         }
 
-        public int prev;
+        public int prev = -1;
 
         private void Goal_Click(object sender, RoutedEventArgs e)
         {
-            if (prev != null)
+            if (prev >= 0)
             {
-                (missionsParent.Children[prev] as Border).BorderBrush = new SolidColorBrush(Colors.Transparent);
-                prev = Convert.ToInt32(((sender as TextBlock).Parent as Border).Tag.ToString());
+                (missionsParent.Children[prev] as Border).Background = new SolidColorBrush(Colors.Transparent);
             }
-            ((sender as TextBlock).Parent as Border).BorderBrush = new SolidColorBrush(Colors.White);
+            prev = Convert.ToInt32(((sender as TextBlock).Parent as Border).Tag.ToString());
+            ((sender as TextBlock).Parent as Border).Background = new SolidColorBrush(Color.FromArgb(127,0,0,0));
             chooseButton.Tag = (sender as TextBlock).Tag.ToString();
 
             Simulation.mission_complete = (sender as TextBlock).Text;
@@ -35,8 +35,16 @@ namespace xploration
 
         private void ChooseMission_Click(object sender, RoutedEventArgs e)
         {
-            Simulation.mission = (sender as Button).Tag.ToString();
-            NavigationService.GoBack();
+            try
+            {
+                Simulation.mission = (sender as Button).Tag.ToString();
+                NavigationService.GoBack();
+            }
+            catch
+            {
+                MessageBox.Show("No mission type selected");
+                NavigationService.GoBack();
+            }
         }
     }
 

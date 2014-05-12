@@ -52,7 +52,7 @@ namespace xploration
             if (simulation_pre_launch == null)
                 MessageBox.Show("Ooops! You tried to start a mission without selecting the destination and/or the mission type. You're a bit confused lad!");
             else
-                if(!pressed)
+                if (!pressed)
                 {
                     PreLaunchSimulation(simulation_pre_launch);
                     pressed = false;
@@ -65,7 +65,7 @@ namespace xploration
         {
             WebClient client = new WebClient();
             client.UseDefaultCredentials = true;
-            string site = "http://www.spacexplore.it/api/simulation/" + parameters;
+            string site = "http://www.spacexplore.it/simulation/" + parameters;
             client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_target_DownloadStringCompleted);
             try
             {
@@ -93,8 +93,7 @@ namespace xploration
                 Debug.WriteLine(e.Result);
                 Response response = JsonConvert.DeserializeObject<Response>(e.Result);
                 if (response.code != 1)
-                    //navigation to be performed
-                    Debug.WriteLine("SUCCESS!");
+                    NavigationService.Navigate(new Uri("/TechPage.xaml", UriKind.Relative));
                 else
                     MessageBox.Show(response.type + "." + response.content + ".");
                 progBar.IsIndeterminate = false;
