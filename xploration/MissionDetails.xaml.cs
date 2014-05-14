@@ -177,6 +177,13 @@ namespace xploration
            
 
         }
+
+        //Social, feature to be implemented in future versions
+        private void Social_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("This feature will be available on future releases: it will allow the user to share missions or to visit missions social pages." +
+                             " Furthermore you will be able to use the RSS feed reader for mission status! Stay tuned, my dear beta-tester: future begins!");
+        }
             
     }
 }

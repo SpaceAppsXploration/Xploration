@@ -23,7 +23,7 @@
                 <Grid>
                     <Image Source="/Assets/Simulation/gear.png" Margin="96,-16,92,480"></Image>
                     <TextBlock FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap" Margin="14,218,-8,20">
-                        Mission control approved your launch! In this section you can decide whic are the best components
+                        Mission control approved your launch! In this section you can decide which are the best components
                         to fill your satellite with. They are the eyes, the muscles and the brain of your space exploration mission. Choose them
                         wisely and prepare your spacecraft to launch!
                     </TextBlock>
@@ -201,7 +201,7 @@
 
             <phone:PivotItem Header="launch">
                 <Grid>
-                    <Image Source="/Assets/Simulation/satellite.png" Margin="0,-16,2,442"></Image>
+                    <Image Source="/Assets/Simulation/satellite.png" Margin="0,-2,4,434"></Image>
                     <TextBlock FontFamily="Segoe WP Light" FontSize="32" FontWeight="Medium" TextWrapping="Wrap" Margin="14,218,16,396">
                         Mission scheduled.
                     </TextBlock>
