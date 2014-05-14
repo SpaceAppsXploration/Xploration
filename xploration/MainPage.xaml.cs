@@ -5,6 +5,7 @@ using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
+using Microsoft.Phone.Tasks;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using xploration.Resources;
@@ -37,5 +38,16 @@ namespace xploration
             NavigationService.Navigate(new Uri("/MissionsAllin.xaml", UriKind.RelativeOrAbsolute));
         }
 
+        //email sender for the support service
+        private void emailSupportSend_Click(object sender, RoutedEventArgs e)
+        {
+            EmailComposeTask emailComposeTask = new EmailComposeTask();
+
+            emailComposeTask.To = "dev.xploration@outlook.com";
+            emailComposeTask.Subject = "XplorationApp issue";
+            emailComposeTask.Body = "";
+
+            emailComposeTask.Show();
+        }
     }
 }

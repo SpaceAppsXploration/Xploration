@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -19,7 +20,7 @@ namespace xploration
         public DestinationPage()
         {
             InitializeComponent();
-
+            InitializeDestinations();
             Downloading.Visibility = Visibility.Visible;
             progBar.IsIndeterminate = true;
             destinationPivot.Visibility = Visibility.Collapsed;
@@ -27,6 +28,16 @@ namespace xploration
             RetrievingPhysics();
         }
 
+        //initializing the tags for destinations - more flexible graphical implementation
+        public void InitializeDestinations()
+        {
+            for (int i = 0; i < destinationParent.Children.Count; i++)
+            {
+                ((destinationParent.Children[i] as StackPanel).Children[0] as Image).Tag = i.ToString();
+            }
+        }
+
+        //retrieving info from the web if necessary
         public void RetrievingPhysics()
         {
             IsolatedStorageSettings destinationSettings = IsolatedStorageSettings.ApplicationSettings;
@@ -91,10 +102,18 @@ namespace xploration
             }
         }
 
-
+        public int prev = -1;
+        
         //visualizing informations
         private void Destination_Tap(object sender, RoutedEventArgs e)
         {
+            if (prev >= 0)
+            {
+                (destinationParent.Children[prev] as StackPanel).Background = new SolidColorBrush(Colors.Transparent);
+            }
+            prev = Convert.ToInt32((((sender as StackPanel).Children[0]) as Image).Tag.ToString());
+            (sender as StackPanel).Background = new SolidColorBrush(Color.FromArgb(127, 0, 0, 0));
+
             //TODO to check simulation targets: they can change!
             Disclaimer.Visibility = Visibility.Collapsed;
             chooseButton.Visibility = Visibility.Visible;

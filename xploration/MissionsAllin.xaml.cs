@@ -54,6 +54,12 @@ namespace xploration
                         else
                             Visualize();
                 }
+                else
+                {
+                    DateTime date = DateTime.Now;
+                    missionSettings["mission_cache"] = (DateTime)date;
+                    mission_recovery();
+                }
 
         }
 

@@ -191,6 +191,7 @@
     <Content Include="Assets\Simulation\Destinations\Uranus.png" />
     <Content Include="Assets\Simulation\Destinations\Venus.png" />
     <Content Include="Assets\Simulation\gear.png" />
+    <Content Include="Assets\Simulation\launch_photo.jpg" />
     <Content Include="Assets\Simulation\rocket-solid-icon.png" />
     <Content Include="Assets\Simulation\rocket.png" />
     <Content Include="Assets\Simulation\satellite.png" />

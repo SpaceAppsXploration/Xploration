@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.IO.IsolatedStorage;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -32,6 +33,7 @@ namespace xploration
                 goalText.Text = "no mission selected";
             else
                 goalText.Text = Simulation.mission_complete;
+            
         }
 
         private void DestinationClick(object sender, RoutedEventArgs e)
@@ -98,7 +100,7 @@ namespace xploration
                     if (response.code != 1)
                         NavigationService.Navigate(new Uri("/TechPage.xaml", UriKind.Relative));
                     else
-                        MessageBox.Show(response.type + "." + response.content + ".");
+                        MessageBox.Show("The Tech Fellow says: '" + response.type + "." + response.content + ".'");
                     progBar.IsIndeterminate = false;
                 }
                 catch { Debug.WriteLine("ERROR"); } 

@@ -201,6 +201,7 @@
 
             <phone:PivotItem Header="launch">
                 <Grid>
+                <Grid x:Name="finalLaunch" Visibility="Visible">
                     <Image Source="/Assets/Simulation/satellite.png" Margin="0,-2,4,434"></Image>
                     <TextBlock FontFamily="Segoe WP Light" FontSize="32" FontWeight="Medium" TextWrapping="Wrap" Margin="14,218,16,396">
                         Mission scheduled.
@@ -214,7 +215,14 @@
                         <TextBlock Text="launch your mission" FontFamily="Segoe WP Light" FontSize="32"></TextBlock>
                     </Button>
                     <ProgressBar x:Name="progBar" IsIndeterminate="False" Foreground="Cyan" Background="Transparent" Margin="-12,520,-12,-6"/>
-
+                </Grid>
+                
+                <Grid x:Name="successLaunch" Visibility="Collapsed">
+                        <Image Source="/Assets/Simulation/launch_photo.jpg" Margin="0,-212,0,212"></Image>
+                        <TextBlock Text="Mission is a Go! That's cool! Better call the Government!" FontFamily="Segoe WP Light" TextWrapping="Wrap" FontSize="32" Margin="22,312,18,246"></TextBlock>
+                        <TextBlock Text="play again" FontFamily="Segoe WP Light" FontWeight="Medium" FontSize="32" Margin="16,594,286,0" Tag="pg" Tap="launchNav_onTap"></TextBlock>
+                        <TextBlock Text="home" FontFamily="Segoe WP Light"  FontWeight="Medium" FontSize="32" Margin="354,592,10,6" Tag="h" Tap="launchNav_onTap"></TextBlock>
+                </Grid>
                 </Grid>
             </phone:PivotItem>
         </phone:Pivot>

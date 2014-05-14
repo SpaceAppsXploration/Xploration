@@ -59,7 +59,7 @@
             <ImageBrush ImageSource="/Assets/Background/bg.png"></ImageBrush>
         </Grid.Background>
 
-        <phone:Pivot x:Name="agenciesPivot" Visibility="Collapsed">
+        <phone:Pivot x:Name="agenciesPivot" Visibility="Collapsed" Margin="0,-16,0,0">
             <phone:PivotItem Header="nasa" Margin="12,28,12,-4">
                 <phone:LongListSelector
                      x:Name="missionListNASA"

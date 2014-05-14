@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.IO.IsolatedStorage;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Navigation;
@@ -157,14 +158,32 @@ namespace xploration
                     //deserializing response
                     Response response = JsonConvert.DeserializeObject<Response>(e.Result);
                     if (response.code != 1)
-                        MessageBox.Show("SUCCESS! " + response.content + ".");
+                    {
+                        finalLaunch.Visibility = Visibility.Collapsed;
+                        successLaunch.Visibility = Visibility.Visible;
+                    }
                     else
-                        MessageBox.Show("FAILED! " + response.type + ". " + response.content + ".");
+                        MessageBox.Show("The Tech Fellow says: '" + response.type + ". " + response.content + ".'");
                     progBar.IsIndeterminate = false;
                 }
                  catch { Debug.WriteLine("ERROR"); }
             }
            
+        }
+
+        //performing back navigation
+        private void launchNav_onTap(object sender, RoutedEventArgs e)
+        {
+            if ((sender as TextBlock).Tag == (string)"pg")
+            {
+                Simulation.ClearAll();
+                NavigationService.GoBack();
+            }
+            else
+            {
+                NavigationService.RemoveBackEntry();
+                NavigationService.GoBack();
+            }
         }
     }
 }
