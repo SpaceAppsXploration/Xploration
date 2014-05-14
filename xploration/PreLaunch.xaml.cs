@@ -55,7 +55,7 @@ namespace xploration
                 if (!pressed)
                 {
                     PreLaunchSimulation(simulation_pre_launch);
-                    pressed = false;
+                    pressed = true;
                     progBar.IsIndeterminate = true;
                 }
         }
@@ -66,7 +66,7 @@ namespace xploration
             WebClient client = new WebClient();
             client.UseDefaultCredentials = true;
             string site = "http://www.spacexplore.it/simulation/" + parameters;
-            client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_target_DownloadStringCompleted);
+            client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);
             try
             {
                 client.DownloadStringAsync(new Uri(site, UriKind.Absolute));
@@ -80,25 +80,30 @@ namespace xploration
            
         }
 
-        private void client_target_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        private void client_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
             pressed = false;
             if (e.Error != null)
+            {
                 if (MessageBox.Show("Okay, Houston, we've had a problem here... There is a problem on the internal database, please check it later") == MessageBoxResult.OK)
                     if (NavigationService.CanGoBack)
                         NavigationService.GoBack();
-            try
-            {
-                //deserializing response
-                Debug.WriteLine(e.Result);
-                Response response = JsonConvert.DeserializeObject<Response>(e.Result);
-                if (response.code != 1)
-                    NavigationService.Navigate(new Uri("/TechPage.xaml", UriKind.Relative));
-                else
-                    MessageBox.Show(response.type + "." + response.content + ".");
-                progBar.IsIndeterminate = false;
             }
-            catch { Debug.WriteLine("ERROR"); } 
+            else
+            {
+                try
+                {
+                    //deserializing response
+                    Response response = JsonConvert.DeserializeObject<Response>(e.Result);
+                    if (response.code != 1)
+                        NavigationService.Navigate(new Uri("/TechPage.xaml", UriKind.Relative));
+                    else
+                        MessageBox.Show(response.type + "." + response.content + ".");
+                    progBar.IsIndeterminate = false;
+                }
+                catch { Debug.WriteLine("ERROR"); } 
+            }
+            
         }
     }
 }

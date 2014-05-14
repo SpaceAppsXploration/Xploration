@@ -62,28 +62,33 @@ namespace xploration
         private void client_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
             if (e.Error != null)
-                if (MessageBox.Show("Okay, Houston, we've had a problem here... There is a problem on the internal database, please check it later") == MessageBoxResult.OK)
-                    if (NavigationService.CanGoBack)
-                       NavigationService.GoBack();
-            try
-                {
-                //deserializing datas and saving them
-                IsolatedStorageSettings destinationSettings = IsolatedStorageSettings.ApplicationSettings;
-                List<RootPlanet> destinationList = JsonConvert.DeserializeObject<List<RootPlanet>>(e.Result);
-                destinationSettings["targetList"] = (List<RootPlanet>)destinationList;
-
-                
-                Downloading.Visibility = Visibility.Collapsed;
-                progBar.IsIndeterminate = false;
-                destinationPivot.Visibility = Visibility.Visible;
-            }
-            catch
             {
                 if (MessageBox.Show("Okay, Houston, we've had a problem here... There is a problem on the internal database, please check it later") == MessageBoxResult.OK)
                     if (NavigationService.CanGoBack)
                         NavigationService.GoBack();
             }
+            else
+            {
+                try
+                {
+                    //deserializing datas and saving them
+                    IsolatedStorageSettings destinationSettings = IsolatedStorageSettings.ApplicationSettings;
+                    List<RootPlanet> destinationList = JsonConvert.DeserializeObject<List<RootPlanet>>(e.Result);
+                    destinationSettings["targetList"] = (List<RootPlanet>)destinationList;
 
+
+                    Downloading.Visibility = Visibility.Collapsed;
+                    progBar.IsIndeterminate = false;
+                    destinationPivot.Visibility = Visibility.Visible;
+                }
+                catch
+                {
+                    if (MessageBox.Show("Okay, Houston, we've had a problem here... There is a problem on the internal database, please check it later") == MessageBoxResult.OK)
+                        if (NavigationService.CanGoBack)
+                            NavigationService.GoBack();
+                }
+
+            }
         }
 
 

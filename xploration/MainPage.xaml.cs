@@ -20,6 +20,13 @@ namespace xploration
             InitializeComponent();
         }
 
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            Simulation.ClearAll();
+        }
+
         private void AcceptChallenge(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/PreLaunch.xaml", UriKind.Relative));

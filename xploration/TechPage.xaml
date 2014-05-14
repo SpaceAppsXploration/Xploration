@@ -35,61 +35,75 @@
                     <ScrollViewer>
                     <StackPanel>
 
-                        <Border Background="#7F000000" Margin="5, 5, 5, 5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border Background="Transparent" Margin="5, 5, 5, 5" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <StackPanel Width="auto" Height="auto">
-                                <StackPanel x:Name="st1" Orientation="Horizontal">
-                                        <CheckBox Width="370" FontSize="30" Content="Optical sensor" FontFamily="Segoe WP Light" Tag="opt_sensor"/>
+                                    <StackPanel x:Name="st1" Orientation="Horizontal">
+                                        <CheckBox x:Name="p1" Width="370" FontSize="30" Content="Optical sensor" FontFamily="Segoe WP Light" Tag="opt_sensor"/>
+                                    </StackPanel>
+                                    <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="370">
+                                     It's like a camera, but in space!
+                                    </TextBlock>
+                                    <TextBlock />
+
                                 </StackPanel>
-                                <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
-                                   It's like a camera, but in space!
-                                </TextBlock>
-                            </StackPanel>
                         </Border>
 
-                        <Border Background="#7F000000" Margin="5, 5, 5, 5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border Background="Transparent" Margin="5, 5, 5, 5" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <StackPanel Width="auto" Height="auto">
                                 <StackPanel x:Name="st2" Orientation="Horizontal">
-                                    <CheckBox Width="370" FontSize="30" Content="Radio sensor" FontFamily="Segoe WP Light" Tag="radio_sensor"/>
+                                        <CheckBox x:Name="p2" Width="370" FontSize="30" Content="Radio sensor" FontFamily="Segoe WP Light" Tag="radio_sensor"/>
                                 </StackPanel>
-                                    <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
+
+                                    <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="370">
                                       Similar to the optical sensor, but on different wavelenghts.
                                     </TextBlock>
+                                    <TextBlock />
+
                                 </StackPanel>
                         </Border>
 
-                        <Border Background="#7F000000" Margin="5, 5, 5, 5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border Background="Transparent" Margin="5, 5, 5, 5" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <StackPanel Width="auto" Height="auto">
-                                <StackPanel x:Name="st3" Orientation="Horizontal">
-                                    <CheckBox Width="370" FontSize="30" Content="Spectrometer" FontFamily="Segoe WP Light" Tag="spectrometer" />
-                                </StackPanel>
-                                    <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
+                                    <StackPanel x:Name="st3" Orientation="Horizontal">
+                                        <CheckBox x:Name="p3" Width="370" FontSize="30" Content="Spectrometer" FontFamily="Segoe WP Light" Tag="spectrometer"/>
+                                    </StackPanel>
+
+                                    <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="370">
                                       It can dedect and analyze almost everything, depends on your needs
                                     </TextBlock>
+                                    <TextBlock />
+
                                 </StackPanel>
                         </Border>
 
-                        <Border Background="#7F000000" Margin="5, 5, 5, 5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border Background="Transparent" Margin="5, 5, 5, 5" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <StackPanel Width="auto" Height="auto">
                                 <StackPanel x:Name="st4" Orientation="Horizontal">
-                                    <CheckBox Width="370" FontSize="30" Content="Probe" FontFamily="Segoe WP Light" Tag="probe"/>
+                                        <CheckBox x:Name="p4" Width="370" FontSize="30" Content="Probe" FontFamily="Segoe WP Light" Tag="probe" />
                                 </StackPanel>
-                                    <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
+
+                                    <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="370">
                                        It can be sent on celestial bodies to collect samples and analyze them.                                    
                                     </TextBlock>
+                                    <TextBlock />
+
                                 </StackPanel>
                         </Border>
 
-                        <Border Background="#7F000000" Margin="5, 5, 5, 5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Border Background="Transparent" Margin="5, 5, 5, 5" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <StackPanel Width="auto" Height="auto">
-                                <StackPanel x:Name="st5" Orientation="Horizontal">
-                                    <CheckBox Width="370" FontSize="30" Content="Amplifier" FontFamily="Segoe WP Light" Tag="amplifier"/>
-                                </StackPanel>
-                                    <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
+                                    <StackPanel x:Name="st5" Orientation="Horizontal">
+                                        <CheckBox x:Name="p5" Width="370" FontSize="30" Content="Amplifier" FontFamily="Segoe WP Light" Tag="amplifier"/>
+                                    </StackPanel>
+                                    <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="370">
                                        Whenever you need to amplify a signal, whichever it is.
                                     </TextBlock>
+                                    <TextBlock />
+
                                 </StackPanel>
                         </Border>
-                    </StackPanel>
+
+                        </StackPanel>
                     </ScrollViewer>
                 </Grid>
             </phone:PivotItem>
@@ -101,51 +115,82 @@
                             <StackPanel>
 
                                 <TextBlock FontSize="40" FontFamily="Segoe WP Light" Text="Thermal control"/>
-                                <CheckBox Content="Active"  Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
-                                <CheckBox Content="Passive"  Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
-                                
+                                <CheckBox Content="Active"  x:Name="c1" Tag="therm_active" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light" Checked="CheckedBus"/>
+                                <CheckBox Content="Passive" x:Name="c2" Tag="therm_passive" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light" Checked="CheckedBus"/>
+                                <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
+                                     Controls the temperature of the spacecraft and of the subsystems.                                </TextBlock>
+                                <TextBlock />
+
                                 <TextBlock />
                                 
                                 <TextBlock FontSize="40" FontFamily="Segoe WP Light" Text="Primary power"/>
-                                <CheckBox Content="Solar arrays" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
-                                <CheckBox Content="Radioisotope thermal generator" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+                                <CheckBox Content="Solar arrays" x:Name="c3" Tag="pow_prim_panels" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light" Checked="CheckedBus"/>
+                                <CheckBox Content="Radioisotope thermal generator" x:Name="c4" Tag="pow_prim_rtg" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light" Checked="CheckedBus"/>
+                                <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
+                                       It's what gives energy to all the spacecraft.
+                                </TextBlock>
+                                <TextBlock />
 
                                 <TextBlock />
                                 
                                 <TextBlock FontSize="40" FontFamily="Segoe WP Light" Text="Backup power"/>
-                                <CheckBox Content="Batteries"  Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
-                                <CheckBox Content="Fuel cells" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+                                <CheckBox Content="Batteries"  x:Name="c5" Tag="pow_sec_batt" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light" Checked="CheckedBus"/>
+                                <CheckBox Content="Fuel cells" x:Name="c6" Tag="pow_sec_fc" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light" Checked="CheckedBus"/>
+                                <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
+                                       It is always better to have a plan B, especially for what keeps your mission alive.
+                                </TextBlock>
+                                <TextBlock />
 
                                 <TextBlock />
                                 
                                 <TextBlock FontSize="40" FontFamily="Segoe WP Light" Text="Communication"/>
-                                <CheckBox Content="Monodirectional" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
-                                <CheckBox Content="Omnidirectional" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+                                <CheckBox Content="Monodirectional" x:Name="c7" Tag="comm_mono" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light" Checked="CheckedBus"/>
+                                <CheckBox Content="Omnidirectional" x:Name="c8" Tag="comm_omni" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light" Checked="CheckedBus"/>
+                                <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
+                                   Helps you communicate with Earth and, why not, other satellites.
+                                </TextBlock>
+                                <TextBlock />
 
                                 <TextBlock />
                                 
                                 <TextBlock FontSize="40" FontFamily="Segoe WP Light" Text="AODCS"/>
-                                <CheckBox Content="Robust control" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
-                                <CheckBox Content="Simple control" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+                                <CheckBox Content="Robust control" x:Name="c9" Tag="aodcs_robus" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light" Checked="CheckedBus"/>
+                                <CheckBox Content="Simple control" x:Name="c10" Tag="aodcs_simple" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light" Checked="CheckedBus"/>
+                                <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
+                                       Attitude Orbit Determination Control - fundamental to keep your spacecraft on track and point it in the right direction.
+                                </TextBlock>
+                                <TextBlock />
 
                                 <TextBlock />
                                 
                                 <TextBlock FontSize="40" FontFamily="Segoe WP Light" Text="Propulsion"/>
-                                <CheckBox Content="Electric" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
-                                <CheckBox Content="Chemical" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+                                <CheckBox Content="Electric" x:Name="c11" Tag="prop_electr" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light" Checked="CheckedBus"/>
+                                <CheckBox Content="Chemical" x:Name="c12" Tag="prop_chem" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light" Checked="CheckedBus"/>
+                                <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
+                                       It helps you go where you wanna go.
+                                </TextBlock>
+                                <TextBlock />
 
 
                                 <TextBlock />
                                 
                                 <TextBlock FontSize="40" FontFamily="Segoe WP Light" Text="Structure"/>
-                                <CheckBox Content="Standard" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
-                                <CheckBox Content="High resistance" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+                                <CheckBox Content="Standard" x:Name="c13" Tag="struct_stand" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light" Checked="CheckedBus"/>
+                                <CheckBox Content="High resistance" x:Name="c14" Tag="struct_high_resist" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light" Checked="CheckedBus"/>
+                                <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
+                                       A bit of physical support cannot hurt, especially in an extremely harsh environment such space.
+                                </TextBlock>
+                                <TextBlock />
 
                                 <TextBlock />
                                 
-                                <TextBlock FontSize="40" FontFamily="Segoe WP Light" Text="C&amp;DH"/>
-                                <CheckBox Content="Standard" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
-                                <CheckBox Content="Optimized" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light"/>
+                                <TextBlock FontSize="40" FontFamily="Segoe WP Light" Text="Command and DH"/>
+                                <CheckBox Content="Standard" x:Name="c15" Tag="cdh_standard" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light" Checked="CheckedBus"/>
+                                <CheckBox Content="Optimized" x:Name="c16" Tag="cdh_optim" Margin="10, 0, 0, 0" FontSize="27" FontFamily="Segoe WP Light" Checked="CheckedBus"/>
+                                <TextBlock FontFamily="Segoe WP Light" FontSize="30" TextWrapping="Wrap" Width="400">
+                                       Command and Data Handling - the brain of the spacecraft: it manages all data and commands.
+                                </TextBlock>
+                                <TextBlock />
                                 <TextBlock/>
 
                             </StackPanel>
@@ -157,17 +202,18 @@
             <phone:PivotItem Header="launch">
                 <Grid>
                     <Image Source="/Assets/Simulation/satellite.png" Margin="0,-16,2,442"></Image>
-                    <TextBlock FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap" Margin="14,218,16,396">
+                    <TextBlock FontFamily="Segoe WP Light" FontSize="32" FontWeight="Medium" TextWrapping="Wrap" Margin="14,218,16,396">
                         Mission scheduled.
                     </TextBlock>
                     <StackPanel Margin="16,266,0,198">
                         <TextBlock x:Name="destinationText" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap"/>
-                        <TextBlock x:Name="missionText" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap" Margin="14,270,2,344"/>
+                        <TextBlock x:Name="missionText" FontFamily="Segoe WP Light" FontSize="32" TextWrapping="Wrap" />
                     </StackPanel>
 
-                    <Button x:Name="chooseButton" BorderThickness="0,2,0,2" Margin="-28,545,-20,8">
+                    <Button x:Name="chooseButton" BorderThickness="0,2,0,2" Margin="-24,445,-24,122" Click="Launch_Click">
                         <TextBlock Text="launch your mission" FontFamily="Segoe WP Light" FontSize="32"></TextBlock>
                     </Button>
+                    <ProgressBar x:Name="progBar" IsIndeterminate="False" Foreground="Cyan" Background="Transparent" Margin="-12,520,-12,-6"/>
 
                 </Grid>
             </phone:PivotItem>

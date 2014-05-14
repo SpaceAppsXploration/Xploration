@@ -122,7 +122,6 @@
     </Compile>
     <Compile Include="RootDetail.cs" />
     <Compile Include="RootMission.cs" />
-    <Compile Include="RootPhysics.cs" />
     <Compile Include="RootPlanet.cs" />
     <Compile Include="Simulation.cs" />
     <Compile Include="TechPage.xaml.cs">
